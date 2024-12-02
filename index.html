@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P4-M13.5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .activity {
+            margin-bottom: 20px;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+        .banner:hover {
+            background-color: #45a049;
+        }
+        .banner hr {
+            border: none;
+            border-top: 1px solid white;
+            margin: 5px 0;
+        }
+        .subtitle {
+            font-size: 0.9em;
+            color: #e0e0e0;
+        }
+        .content {
+            display: none;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            const selectedTime = document.getElementById('class-time').value;
+
+            const activity2 = document.getElementById('activity-2');
+            const activity3Step6 = document.getElementById('activity-3-step-6');
+
+            if (selectedTime === '45') {
+                if (activity2) activity2.style.display = 'none';
+                if (activity3Step6) activity3Step6.style.display = 'block';
+            } else if (selectedTime === '40') {
+                if (activity2) activity2.style.display = 'none';
+                if (activity3Step6) activity3Step6.style.display = 'none';
+            } else {
+                if (activity2) activity2.style.display = 'block';
+                if (activity3Step6) activity3Step6.style.display = 'block';
+            }
+
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        Playbook-P4-M13.5
+    </div>
+
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+       
+       <!-- Actividad 0 -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('activity-0-content')">
+        <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+        <hr>
+        <div class="subtitle">Preparación del espacio y materiales para iniciar la clase.</div>
+    </div>
+    <div id="activity-0-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar Diapositiva 1 y verificar que estén disponibles:
+                    <ul>
+                        <li>2 Cutebots</li>
+                        <li>Micro:bit con batería</li>
+                        <li>Cinta adhesiva para delimitar el espacio</li>
+                        <li>Magic Boards para anotar</li>
+                    </ul>
+                </td>
+                <td>No aplica</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('activity-1-content')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2 minutos</div>
+        <hr>
+        <div class="subtitle">Inicio de la clase con energía y motivación.</div>
+    </div>
+    <div id="activity-1-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar Diapositiva 2 con el tema del Desfile Robótico.</td>
+                <td>"¡Hola Genios! 🌟 Hoy vamos a llevar nuestros Cutebots a desfilar. ¿Están listos para programar una coreografía que sorprenda a todos?"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar Diapositiva 3 "¿Cómo estás?" con poses actualizadas relacionadas con el Desfile Robótico.</td>
+                <td>"¡Genios! Díganme cómo están hoy: Si están emocionados, pónganse en posición como si estuvieran conduciendo su Cutebot con ambas manos. Si necesitan un empujón extra, muevan sus manos ondeando bandera en señal de victoria. ¡Vamos a comenzar con toda la energía!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar Diapositiva 4 "Ritual de Agradecimiento" y guiar a los estudiantes en el ritual temático.</td>
+                <td>"Juntamos nuestras manos y decimos: '¡Gracias por estar aquí, Genios! Hoy será un día lleno de aprendizaje, creatividad y trabajo en equipo. ¡Vamos a hacer desfilar a nuestros Cutebots como nunca!'"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 4:</strong> Proyectar Diapositiva 5 "Objetivos del Desfile Robótico".</td>
+                <td>"Hoy nuestros objetivos son: 1. Aprender a programar trayectorias más complejas. 2. Sincronizar movimientos y luces de nuestros Cutebots. 3. Trabajar en equipo para mejorar. ¡Vamos!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('activity-2-content')">
+        <div class="title">🧠 Actividad 2: Brain Vitamin ⏰ Tiempo: 3 minutos</div>
+        <hr>
+        <div class="subtitle">Simulación de trayectorias y luces usando movimientos corporales.</div>
+    </div>
+    <div id="activity-2-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar Diapositiva 6 y pedir a los estudiantes que realicen movimientos alternados con las manos para representar el avance y retroceso de los Cutebots.</td>
+                <td>"¡Genios! Vamos a practicar trayectorias para nuestro desfile. Levanten una mano hacia adelante como si avanzaran, luego la otra hacia atrás. Alternen los movimientos para simular un desfile. ¡Vamos!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar Diapositiva 7 "Nivel Avanzado" e indicar que los estudiantes simulen que sus manos encienden luces al llegar a cada "punto clave".</td>
+                <td>"Ahora hagámoslo más interesante. Cada vez que muevan las manos, imaginen que están encendiendo las luces de los Cutebots. ¡Hagan un 'flash' al llegar a cada punto!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar Diapositiva 8 y guiar una breve discusión sobre cómo los patrones practicados se traducen en bloques de programación para el desfile.</td>
+                <td>"¡Gran trabajo, Genios! Ahora piensen, ¿cómo podríamos convertir estos movimientos en trayectorias para nuestros Cutebots? ¿Qué bloques de código necesitaríamos para que sigan estos patrones?"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('activity-3-content')">
+        <div class="title">🚀 Actividad 3: Challenge ⏰ Tiempo: 30 minutos</div>
+        <hr>
+        <div class="subtitle">Programación de trayectorias y luces para el Desfile Robótico.</div>
+    </div>
+    <div id="activity-3-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar Diapositiva 9 "Desfile Robótico" y explicar el objetivo general del reto.</td>
+                <td>"¡Genios! Hoy vamos a programar a nuestros Cutebots para participar en un desfile. El reto será diseñar trayectorias únicas, sincronizar sus luces y evitar que choquen entre sí. ¿Están listos?"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar Diapositiva 10 "Preparativos del Desafío".</td>
+                <td>"Antes de comenzar, asegúrense de tener todo listo: sus dos Cutebots, Micro:bit, cinta adhesiva para delimitar el espacio y Magic Boards para anotar ideas. ¡Todo equipo bien preparado gana!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar Diapositiva 11 "Reglas del Desfile". Los equipos usarán cinta adhesiva para delimitar un área de 1x2 metros y recibirán instrucciones claras sobre cómo evitar colisiones.</td>
+                <td>"¡Genios! Vamos a delimitar nuestro circuito. Usen cinta adhesiva para marcar un área de 1x2 metros. Recuerden que ambos Cutebots deben moverse dentro del espacio y evitar colisionar. ¡Sigamos las reglas para un desfile perfecto!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 4:</strong> Proyectar Diapositiva 12 "Niveles del Desafío" y describir cada nivel con ejemplos visuales y consejos.</td>
+                <td>
+                    <strong>Rookie (Básico):</strong> Programar movimientos simples en un espacio delimitado.<br><br>
+                    <strong>Master (Intermedio):</strong> Diseñar trayectorias diferentes para cada Cutebot con luces sincronizadas.<br><br>
+                    <strong>Hacker (Avanzado):</strong> Crear coreografías entrelazadas con trayectorias complejas y luces sincronizadas.<br><br>
+                    "¡Elijan su nivel y manos a la obra!"
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Paso 5:</strong> Proyectar Diapositiva 13 "Manos a la Obra". Dar tiempo para que los estudiantes trabajen en la programación y pruebas iniciales de los movimientos.</td>
+                <td>"¡Es momento de programar! Asegúrense de que sus Cutebots se muevan dentro del espacio, sigan sus trayectorias y sincronicen las luces. Trabajen paso a paso, prueben cada movimiento y ajusten si es necesario. ¡Ustedes son los coreógrafos de este desfile!"</td>
+            </tr>
+            <tr id="activity-3-step-6">
+                <td><strong>Paso 6:</strong> Proyectar Diapositiva 14 "Pruebas y Ajustes". Los equipos realizarán pruebas en el circuito y reflexionarán sobre qué mejoraron durante el reto.</td>
+                <td>"¡Genios! Ahora prueben sus desfiles. Asegúrense de que las trayectorias y las luces funcionen como las planearon. Si algo no va como esperaban, ajusten y vuelvan a intentarlo. ¡Los pequeños detalles son los que hacen grande un desfile!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 7:</strong> Proyectar Diapositiva 15 "Exhibición de Desfiles". Invitar a cada equipo a mostrar su trabajo y explicar brevemente su estrategia.</td>
+                <td>"¡Genios! Es momento de mostrar su trabajo. Cada equipo tendrá la oportunidad de compartir su desfile y contar cómo diseñaron sus trayectorias y sincronizaron sus luces. ¡Aprendamos juntos e inspiremos a otros!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 8:</strong> Proyectar Diapositiva 16 "Revisión de Objetivos". Leer los objetivos planteados al inicio de la clase y reflexionar sobre lo logrado en el desafío.</td>
+                <td>"¡Genios! Hoy lograron algo increíble: programaron trayectorias, sincronizaron luces y crearon un desfile robótico impresionante. ¡Estoy muy orgulloso de su creatividad y trabajo en equipo!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('activity-4-content')">
+        <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 9.5 minutos</div>
+        <hr>
+        <div class="subtitle">Colaboración para revisar, mejorar y completar las coreografías de los Cutebots.</div>
+    </div>
+    <div id="activity-4-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la Diapositiva 17 "Introducción al Team Gnius". Explicar cómo los roles y las ideas colaborativas guiarán la revisión del trabajo.</td>
+                <td>"¡Genios! Ahora trabajaremos como un verdadero equipo. Usaremos el Team CANVAS para compartir nuestras ideas y mejorar nuestras coreografías. ¡Juntos somos más fuertes!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la Diapositiva 18 "Formación de Equipos". Los estudiantes tendrán 1 minuto para formar equipos de 3 y asignar los roles: Líder, Programador, Observador.</td>
+                <td>"Tienen 1 minuto para formar equipos de 3 personas. Cada rol es esencial: el Líder organizará, el Programador ajustará los códigos, y el Observador asegurará la funcionalidad del desfile. ¡Todo el equipo es importante!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar la Diapositiva 19 "Team CANVAS". Cada equipo debe:
+                    <ul>
+                        <li>Analizar lo que realizó cada integrante.</li>
+                        <li>Proponer mejoras según los roles asignados.</li>
+                        <li>Diseñar un plan conjunto.</li>
+                    </ul>
+                </td>
+                <td>"Usen el Team CANVAS para analizar las coreografías de su equipo. ¿Qué ajustes necesita el código? ¿Cómo mejorarían la sincronización de luces o movimientos? Líderes, guíen la conversación para que todos participen."</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 4:</strong> Proyectar la Diapositiva 20. Los equipos trabajan en las siguientes tareas: Líder organiza, Programador ajusta códigos, Observador evalúa circuitos.</td>
+                <td>"Es momento de ayudarse mutuamente. Líderes, organicen las tareas; Programadores, ajusten los códigos con las ideas del equipo; y Observadores, asegúrense de que las trayectorias y luces sean funcionales. ¡El trabajo en equipo nos llevará al éxito!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 5:</strong> Proyectar la Diapositiva 21 "Aplicación de Mejoras". Supervisar mientras los equipos ajustan los códigos, corrigen trayectorias y verifican los resultados.</td>
+                <td>"¡Genios, ahora es momento de implementar las mejoras! Ajusten los movimientos, luces y sincronización de sus Cutebots para hacerlos más precisos. ¡El trabajo en equipo siempre da resultados increíbles!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('activity-5-content')">
+        <div class="title">🏅 Actividad 5: Honor del Lab ⏰ Tiempo: 3.5 minutos</div>
+        <hr>
+        <div class="subtitle">Cierre reflexivo y organización del espacio de trabajo.</div>
+    </div>
+    <div id="activity-5-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la Diapositiva 22 "Revisión de Objetivos". Leer los objetivos planteados al inicio y reflexionar sobre lo alcanzado en equipo.</td>
+                <td>"¡Genios del Desfile! Hoy logramos grandes cosas: diseñar trayectorias únicas, sincronizar luces y trabajar en equipo para crear un desfile impresionante. ¡Estoy muy orgulloso de todos!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la Diapositiva 23 "Organización del Espacio". Guiar a los estudiantes para que recojan todos los materiales utilizados y ordenen el espacio.</td>
+                <td>"Antes de irnos, honremos nuestro espacio de trabajo recogiendo todos los materiales. Recuerden que el orden refleja nuestro esfuerzo. ¡Gracias por ser un equipo tan increíble!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+       
+    </div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales -->
+    <script>
+        // Espacio para scripts adicionales si es necesario
+    </script>
+
+</body>
+</html>
